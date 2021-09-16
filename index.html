@@ -14,8 +14,47 @@
     <script src="https://kit.fontawesome.com/b862bb0d81.js" crossorigin="anonymous"></script>
     <title>TASK-MANAGEMENT</title>
 </head>
+<!-- aria is for screenreader -->
+<!-- modal by default its centre -->
 
 <body>
+    <div class="modal fade" id="newcardmodal" tabindex="-1" aria-labelledby="newCardModalLabel" aria-hidden="true" >
+            <!-- id is to trigger the modal/popup -->
+            <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">ADD NEW TASK</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                        </div>
+                        <div class="modal-body">
+                           <div class="mb-3">
+                                <label for="imageURL" class="form-label">Image URL</label>
+                                <input type="url" class="form-control" id="imageURL" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="tastTitle" class="form-label">TASK TITLE</label>
+                                <input type="text" class="form-control" id="taskTitle" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="taskType" class="form-label">TASK TYPE</label>
+                                <input type="text" class="form-control" id="taskType" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="taskDescription" class="form-label">TASK DESCRIPTION</label>
+                                <textarea rows="3" class="form-control" id="taskDescription"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button onclick="addCard()" type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                                        SAVE
+                            </button>
+                        </div>
+                    </div>
+
+
+            </div>
+
+    </div>
     <!-- <nav class="navbar navbar-expand-md navbar-light bg-light"> -->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
          <div class="container-fluid">
@@ -36,8 +75,9 @@
                     </li>
                 </ul>  
                 
-                <button class="btn btn-primary ml-auto">
+                <button class="btn btn-primary ml-auto" data-bs-toggle="modal" data-bs-target="#newcardmodal">
                      <!-- to give bue color and align it to right -->
+                    <!-- data-bs-toggle="modal" data-bs-target="#newcardmodal" this stuff connects the modal with this one -->
                     <i class="fas fa-plus"></i>
                      <!-- this is for plus icon  -->
                         Add New
@@ -49,8 +89,8 @@
     </nav>
     <main class="container">
         <section>
-            <div class="row">
-                <div class="col-md-6 col-lg-4 mt-3">
+            <div id="taskContentsrow" class="row" >
+                <!-- <div class="col-md-6 col-lg-4 mt-3">
                     <div class="cards">
                         <div class="card-header">
                             <div class="card-header d-flex justify-content-end">
@@ -72,7 +112,7 @@
                             <button class="btn btn-outline-primary float-end">Open task</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
     </main>
