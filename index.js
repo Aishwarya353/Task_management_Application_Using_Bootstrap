@@ -213,12 +213,12 @@ const handlesubmit = (e) => {
   updateLocalStorage();
 };
 
-const openTask = (e) => {
+function openTask(e) {
   if (!e) e = window.event;
 
   const getTask = state.taskList.filter(({ id }) => id === e.target.id);
   taskModal.innerHTML = htmlModalContent(getTask[0]);
-};
+}
 
 const deleteTask = (e) => {
   if (!e) e = window.event;
